@@ -69,7 +69,7 @@ export const SaveEvent = expressAsyncHandler(async (req, res) => {
   }
 
   res.status(202).json({
-    message: "Accepted",
+    status: "Accepted",
   });
 });
 
