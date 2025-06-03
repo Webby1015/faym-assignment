@@ -13,6 +13,14 @@ To get started, follow these steps:
 ```bash
     npm i
 ```
+3. **Set Up Your `.env` file:**
+
+Make a `.env` in the root directory of your project and add the following varibales with valid data.
+
+```
+PORT = 5001
+MONGO_URI = "mongodb+srv://<username>:<password>@<clusterName>.r653d9x.mongodb.net/?retryWrites=true&w=majority&appName=<clustername>"
+```
 
 3. **Run the server:**
 
@@ -35,6 +43,7 @@ To get started, follow these steps:
 ```
 
 5. **Visit http://localhost:5001/ for test frontend page**
+Note : The test frontend page will be running at the Same POST as Backend server.
 
 ## API Endpoints
 
