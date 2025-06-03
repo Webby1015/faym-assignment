@@ -3,7 +3,7 @@ import { TotalEventCounts,  EventCountsByType } from '../Controllers/analyticsCo
 
 export const analytics = express.Router();
 
-analytics.get('/event-count', TotalEventCounts);
+analytics.get('/event-counts', TotalEventCounts);
 analytics.get('/event-counts-by-type', EventCountsByType);
 
 

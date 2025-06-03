@@ -11,11 +11,12 @@ connectDB();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// comment out if test-frontend is not required
 app.use(express.static('public'));
 
 
 app.use(express.json());
-app.use('/events', events);
+app.use('/eventS', events);
 app.use('/analytics', analytics);
 
 app.get('/', (req, res) => {

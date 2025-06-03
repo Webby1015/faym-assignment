@@ -13,31 +13,94 @@ To get started, follow these steps:
     git clone "https://github.com/Webby1015/faym-assignment.git"
     ```
 2. **Install dependencies:**
-    ```bash
+```bash
     npm i
-    ```
+```
 3. **Run the server:**
     
-    **Development mode (with nodemon):**
-        ```bash
-        npm run dev
-        ```
-    **or**
-
-    **Regular mode:**
-        ```bash
-        npm start
-        ```
+**Development mode (with nodemon):**
+```bash
+    npm run dev
+```
+**Regular mode:**
+```bash
+    npm start
+```
+        
 4. **Populate the database (optional):**
-    ```bash
+```bash
     npm run seed
-    ```
+```
 
----
+5. **Visit http://localhost:5001/ for test frontend page**
+
 
 ## API Endpoints
+`POST /events`
+`GET /analytics/event-counts`
+`GET /analytics/event-counts-by-type`
 
-### Get Total Event Count
+### POST Events
+
+`POST /events`
+
+**Example Request Body (for a 'view' event):**
+
+```json
+{
+  "event_id": "unique-view-id-123",
+  "timestamp": "2023-01-01T12:00:00Z",
+  "user_id": "user-abc",
+  "event_type": "view",
+  "payload": {
+    "url": "https://example.com/page1",
+    "title": "Example Page One"
+  }
+}
+```
+
+**Example Request Body (for a 'click' event):**
+
+```json
+{
+  "event_id": "unique-click-id-456",
+  "timestamp": "2023-01-01T12:05:00Z",
+  "user_id": "user-abc",
+  "event_type": "click",
+  "payload": {
+    "element_id": "button-submit",
+    "text": "Submit Form",
+    "xpath": "/html/body/div/button"
+  }
+}
+```
+
+**Example Request Body (for a 'location' event):**
+
+```json
+{
+  "event_id": "unique-location-id-789",
+  "timestamp": "2023-01-01T12:10:00Z",
+  "user_id": "user-def",
+  "event_type": "location",
+  "payload": {
+    "latitude": 34.052235,
+    "longitude": -118.243683,
+    "accuracy": 10
+  }
+}
+```
+
+**Example Response:**
+
+```json
+{
+  "status": "Accepted"
+}
+```
+
+
+### Get Event Counts
 
 # Query Parameters:
 **event_type (optional): "view", "click", or "location**
@@ -129,64 +192,7 @@ To get started, follow these steps:
 
 
 
-### Submit Events
 
-`POST /events`
-
-**Example Request Body (for a 'view' event):**
-
-```json
-{
-  "event_id": "unique-view-id-123",
-  "timestamp": "2023-01-01T12:00:00Z",
-  "user_id": "user-abc",
-  "event_type": "view",
-  "payload": {
-    "url": "https://example.com/page1",
-    "title": "Example Page One"
-  }
-}
-```
-
-**Example Request Body (for a 'click' event):**
-
-```json
-{
-  "event_id": "unique-click-id-456",
-  "timestamp": "2023-01-01T12:05:00Z",
-  "user_id": "user-abc",
-  "event_type": "click",
-  "payload": {
-    "element_id": "button-submit",
-    "text": "Submit Form",
-    "xpath": "/html/body/div/button"
-  }
-}
-```
-
-**Example Request Body (for a 'location' event):**
-
-```json
-{
-  "event_id": "unique-location-id-789",
-  "timestamp": "2023-01-01T12:10:00Z",
-  "user_id": "user-def",
-  "event_type": "location",
-  "payload": {
-    "latitude": 34.052235,
-    "longitude": -118.243683,
-    "accuracy": 10
-  }
-}
-```
-
-**Example Success Response:**
-
-```json
-{
-  "status": "Accepted"
-}
-```
 
 ## Database Schema
 
