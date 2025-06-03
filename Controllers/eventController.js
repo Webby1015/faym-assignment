@@ -10,11 +10,10 @@ export const SaveEvent = expressAsyncHandler(async (req, res) => {
     throw new Error("user_id, event_type, and payload are required fields");
   }
 
-  // Helper function to create an event instance based on event_type
   const createEventInstance = (event_id, timestampToUse) => {
     const commonData = {
       event_id,
-      timestamp: timestampToUse, // Use the determined timestamp
+      timestamp: timestampToUse,
       user_id,
       event_type,
       payload,
@@ -36,32 +35,24 @@ export const SaveEvent = expressAsyncHandler(async (req, res) => {
 
   let savedEvent;
   const maxRetries = 5;
+  const effectiveTimestamp =  new Date();
 
   for (let attempt = 0; attempt < maxRetries; attempt++) {
     const event_id = uuidv4();
-
-    // Determine the timestamp to use:
-    // If payload contains a timestamp, use it (and convert to Date object if necessary).
-    // Otherwise, create a new Date object.
-    const effectiveTimestamp = payload.timestamp
-      ? new Date(payload.timestamp)
-      : new Date();
-
-    const event = createEventInstance(event_id, effectiveTimestamp); // Pass the effective timestamp
+    const event = createEventInstance(event_id, effectiveTimestamp);
 
     try {
       savedEvent = await event.save();
-      break; // Exit loop on successful save
+      break;
     } catch (error) {
       if (error.code === 11000 && error.keyPattern?.event_id) {
-        // Handle duplicate event_id error
         if (attempt === maxRetries - 1) {
           res.status(409);
-          throw new Error("Duplicate event_id after multiple attempts. Try again later.");
+          throw new Error(
+            "Duplicate event_id after multiple attempts. Try again later."
+          );
         }
-        // If not the last attempt, continue to retry with a new UUID
       } else {
-        // Handle other saving errors
         res.status(500);
         throw new Error("Failed to save event: " + error.message);
       }

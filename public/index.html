@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test Frontend - Event Tracker</title>
+  </head>
+  <body>
+    <h1>Event Tracker Test Frontend</h1>
+
+    <button id="click-me">Send Click Event</button>
+    <button id="get-location">Send Location Event</button>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then((reg) => console.log("Service Worker registered:", reg.scope))
+          .catch((err) =>
+            console.error("Service Worker registration failed:", err)
+          );
+        console.log("Service Worker is supported");
+      } else {
+        console.warn("Service Workers not supported");
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        sendEvent({
+          user_id: "someUser123", 
+          event_type: "view",
+          payload: {
+            url: window.location.href,
+            title: document.title,
+          },
+        });
+      });
+
+      document.getElementById("click-me").addEventListener("click", () => {
+        sendEvent({
+          user_id: "someUser123",
+          event_type: "click",
+          payload: {
+            element_id: "click-me",
+            text: "Click Me Button",
+            xpath: "/html/body/button[1]",
+          },
+        });
+      });
+
+      document.getElementById("get-location").addEventListener("click", () => {
+        if (!navigator.geolocation) {
+          alert("Geolocation not supported");
+          return;
+        }
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            sendEvent({
+              user_id: "someUser123",
+              event_type: "location",
+              payload: {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+                accuracy: position.coords.accuracy,
+              },
+            });
+          },
+          () => alert("Unable to get location")
+        );
+      });
+
+      function sendEvent(eventData) {
+        if (navigator.serviceWorker.controller) {
+          navigator.serviceWorker.controller.postMessage(eventData);
+          console.log("Sent event data to service worker:", eventData);
+        } else {
+          console.warn("No active service worker controller found.");
+        }
+      }
+    </script>
+  </body>
+</html>

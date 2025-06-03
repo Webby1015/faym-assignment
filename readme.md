@@ -17,11 +17,14 @@ To get started, follow these steps:
     npm i
     ```
 3. **Run the server:**
-    * **Development mode (with nodemon):**
+    
+    **Development mode (with nodemon):**
         ```bash
         npm run dev
         ```
-    * **Regular mode:**
+    **or**
+
+    **Regular mode:**
         ```bash
         npm start
         ```
@@ -36,17 +39,58 @@ To get started, follow these steps:
 
 ### Get Total Event Count
 
+# Query Parameters:
+**event_type (optional): "view", "click", or "location**
+**start_date (optional): ISO 8601 formatted start date (e.g., 2025-05-27)**
+**end_date (optional): ISO 8601 formatted end date (e.g., 2025-06-01)**
+
 `GET /analytics/event-count`
 
 **Example Response:**
 
 ```json
 {
-  "total_events": 12345
+  "total_events": 5000
 }
 ```
 
+
+`GET /analytics/event-counts?event_type=view`
+
+**Example Response:**
+
+```json
+{
+  "count": 1667
+}
+```
+
+`GET /analytics/event-counts?start_date=2025-05-28`
+
+**Example Response:**
+
+```json
+{
+  "count": 1860
+}
+```
+
+`GET /analytics/event-counts?start_date=2025-05-28&end_date=2025-06-01`
+
+**Example Response:**
+
+```json
+{
+  "count": 1660
+}
+```
+
+
 ### Get Event Count by Type
+
+# Query Parameters:
+**start_date (optional): ISO 8601 formatted start date (e.g., 2025-05-27)**
+**end_date (optional): ISO 8601 formatted end date (e.g., 2025-06-01)**
 
 `GET /analytics/event-count?by=type`
 
@@ -59,6 +103,31 @@ To get started, follow these steps:
   "location": 1656
 }
 ```
+`GET /analytics/event-type-counts?start_date=2025-05-28`
+
+**Example Response:**
+
+```json
+{
+  "view": 615,
+  "click": 622,
+  "location": 597
+}
+```
+
+`GET /analytics/event-type-counts?start_date=2025-05-28&end_date=2025-06-02`
+
+**Example Response:**
+
+```json
+{
+  "view": 615,
+  "click": 622,
+  "location": 597
+}
+```
+
+
 
 ### Submit Events
 
