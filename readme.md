@@ -4,48 +4,48 @@ To get started, follow these steps:
 
 1. **Clone the repository:**
 
-```bash
-    git clone "https://github.com/Webby1015/faym-assignment.git"
-```
+  ```bash
+      git clone "https://github.com/Webby1015/faym-assignment.git"
+  ```
 
 2. **Install dependencies:**
 
-```bash
-    npm i
-```
+  ```bash
+      npm i
+  ```
 3. **Set Up Your `.env` file:**
 
-Make a `.env` in the root directory of your project and add the following varibales with valid data.
+  Make a `.env` in the root directory of your project and add the following varibales with valid data.
 
-```
-PORT = 5001
-MONGO_URI = "mongodb+srv://<username>:<password>@<clusterName>.r653d9x.mongodb.net/?retryWrites=true&w=majority&appName=<clustername>"
-```
+  ```
+  PORT = 5001
+  MONGO_URI = "mongodb+srv://<username>:<password>@<clusterName>.r653d9x.mongodb.net/?retryWrites=true&w=majority&appName=<clustername>"
+  ```
 
 4. **Run the server:**
 
 **_Development mode (with nodemon):_**
 
-```bash
-    npm run dev
-```
+  ```bash
+      npm run dev
+  ```
 
 **_Regular mode:_**
 
-```bash
-    npm start
-```
+  ```bash
+      npm start
+  ```
 
 5. **Populate the database (optional):**
 
-```bash
-    npm run seed
-```
+  ```bash
+      npm run seed
+  ```
 
 6. **Visit http://localhost:5001/ for test frontend page**
 
 
-***<h5>The test frontend page will be running at the Same POST as Backend server.</h5>***
+<h5>  The test frontend page will be running at the Same POST as Backend server.</h5>
 
 ## API Endpoints
 
