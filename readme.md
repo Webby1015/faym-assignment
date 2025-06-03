@@ -9,20 +9,20 @@ This project provides a simple API for tracking and analyzing user events.
 To get started, follow these steps:
 
 1. **Clone the repository:**
-    ```bash
+```bash
     git clone "https://github.com/Webby1015/faym-assignment.git"
-    ```
+```
 2. **Install dependencies:**
 ```bash
     npm i
 ```
 3. **Run the server:**
     
-**Development mode (with nodemon):**
+***Development mode (with nodemon):***
 ```bash
     npm run dev
 ```
-**Regular mode:**
+***Regular mode:***
 ```bash
     npm start
 ```
@@ -33,6 +33,9 @@ To get started, follow these steps:
 ```
 
 5. **Visit http://localhost:5001/ for test frontend page**
+
+
+
 
 
 ## API Endpoints
