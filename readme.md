@@ -3,36 +3,41 @@
 To get started, follow these steps:
 
 1. **Clone the repository:**
+
 ```bash
     git clone "https://github.com/Webby1015/faym-assignment.git"
 ```
+
 2. **Install dependencies:**
+
 ```bash
     npm i
 ```
+
 3. **Run the server:**
-    
-***Development mode (with nodemon):***
+
+**_Development mode (with nodemon):_**
+
 ```bash
     npm run dev
 ```
-***Regular mode:***
+
+**_Regular mode:_**
+
 ```bash
     npm start
 ```
-        
+
 4. **Populate the database (optional):**
+
 ```bash
     npm run seed
 ```
 
 5. **Visit http://localhost:5001/ for test frontend page**
 
-
-
-
-
 ## API Endpoints
+
 `POST /events`
 `GET /analytics/event-counts`
 `GET /analytics/event-counts-by-type`
@@ -96,10 +101,10 @@ To get started, follow these steps:
 }
 ```
 
-
 ### Get Event Counts
 
-## Query Parameters:
+#### Query Parameters:
+
 **event_type (optional): "view", "click", or "location**
 **start_date (optional): ISO 8601 formatted start date (e.g., 2025-05-27)**
 **end_date (optional): ISO 8601 formatted end date (e.g., 2025-06-01)**
@@ -113,7 +118,6 @@ To get started, follow these steps:
   "total_events": 5000
 }
 ```
-
 
 `GET /analytics/event-counts?event_type=view`
 
@@ -145,10 +149,10 @@ To get started, follow these steps:
 }
 ```
 
-
 ### Get Event Count by Type
 
-## Query Parameters:
+#### Query Parameters:
+
 **start_date (optional): ISO 8601 formatted start date (e.g., 2025-05-27)**
 **end_date (optional): ISO 8601 formatted end date (e.g., 2025-06-01)**
 
@@ -163,6 +167,7 @@ To get started, follow these steps:
   "location": 1656
 }
 ```
+
 `GET /analytics/event-type-counts?start_date=2025-05-28`
 
 **Example Response:**
@@ -186,10 +191,6 @@ To get started, follow these steps:
   "location": 597
 }
 ```
-
-
-
-
 
 ## Database Schema
 
