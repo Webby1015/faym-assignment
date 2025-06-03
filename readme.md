@@ -1,9 +1,3 @@
-# Analytics Event Tracker
-
-This project provides a simple API for tracking and analyzing user events.
-
----
-
 ## Setup Instructions
 
 To get started, follow these steps:
@@ -105,12 +99,12 @@ To get started, follow these steps:
 
 ### Get Event Counts
 
-# Query Parameters:
+## Query Parameters:
 **event_type (optional): "view", "click", or "location**
 **start_date (optional): ISO 8601 formatted start date (e.g., 2025-05-27)**
 **end_date (optional): ISO 8601 formatted end date (e.g., 2025-06-01)**
 
-`GET /analytics/event-count`
+`GET /analytics/event-counts`
 
 **Example Response:**
 
@@ -154,7 +148,7 @@ To get started, follow these steps:
 
 ### Get Event Count by Type
 
-# Query Parameters:
+## Query Parameters:
 **start_date (optional): ISO 8601 formatted start date (e.g., 2025-05-27)**
 **end_date (optional): ISO 8601 formatted end date (e.g., 2025-06-01)**
 
