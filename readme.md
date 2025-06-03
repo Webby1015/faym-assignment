@@ -22,7 +22,7 @@ PORT = 5001
 MONGO_URI = "mongodb+srv://<username>:<password>@<clusterName>.r653d9x.mongodb.net/?retryWrites=true&w=majority&appName=<clustername>"
 ```
 
-3. **Run the server:**
+4. **Run the server:**
 
 **_Development mode (with nodemon):_**
 
@@ -36,13 +36,13 @@ MONGO_URI = "mongodb+srv://<username>:<password>@<clusterName>.r653d9x.mongodb.n
     npm start
 ```
 
-4. **Populate the database (optional):**
+5. **Populate the database (optional):**
 
 ```bash
     npm run seed
 ```
 
-5. **Visit http://localhost:5001/ for test frontend page**
+6. **Visit http://localhost:5001/ for test frontend page**
 Note : The test frontend page will be running at the Same POST as Backend server.
 
 ## API Endpoints
