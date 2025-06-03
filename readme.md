@@ -43,7 +43,9 @@ MONGO_URI = "mongodb+srv://<username>:<password>@<clusterName>.r653d9x.mongodb.n
 ```
 
 6. **Visit http://localhost:5001/ for test frontend page**
-***Note : The test frontend page will be running at the Same POST as Backend server.***
+
+
+***The test frontend page will be running at the Same POST as Backend server.***
 
 ## API Endpoints
 
